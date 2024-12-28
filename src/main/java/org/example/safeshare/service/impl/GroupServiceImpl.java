@@ -22,4 +22,9 @@ public class GroupServiceImpl implements GroupService {
     public void newGroup(String name, String description, Long admin_id) {
         groupMapper.newGroup(name, description, admin_id);
     }
+
+    @Override
+    public void applyToGroup(Long userId, Long groupId, String message) {
+        groupMapper.applyToGroup(userId, groupId, message);
+    }
 }

@@ -8,4 +8,7 @@ public interface GroupService {
 
     // 新建组
     void newGroup(String name, String description, Long admin_id);
+
+    // 用户申请
+    void applyToGroup(Long userId, Long groupId, String message);
 }
