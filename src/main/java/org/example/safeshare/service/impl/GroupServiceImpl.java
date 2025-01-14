@@ -1,10 +1,13 @@
 package org.example.safeshare.service.impl;
 
 import org.example.safeshare.dao.Group;
+import org.example.safeshare.dao.GroupApplication;
 import org.example.safeshare.mapper.GroupMapper;
 import org.example.safeshare.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class GroupServiceImpl implements GroupService {
@@ -26,5 +29,15 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public void applyToGroup(Long userId, Long groupId, String message) {
         groupMapper.applyToGroup(userId, groupId, message);
+    }
+
+    @Override
+    public List<Group> findGroupByAdminId(Long admin_id) {
+        return groupMapper.findGroupByAdminId(admin_id);
+    }
+
+    @Override
+    public List<GroupApplication> findPendingApplications(Long groupId) {
+        return groupMapper.findPendingByGroups(groupId);
     }
 }

@@ -27,6 +27,7 @@ public class UserController {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+
     @PostMapping("/register")
     public Result register(String username, String password, String email) {
         if (StringUtils.hasText(username) && StringUtils.hasText(password) && StringUtils.hasText(email)) {
